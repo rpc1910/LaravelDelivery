@@ -35,5 +35,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin', 'middleware'=>'auth.checkrol
 		'postAtualizar' => '.produtos.atualizar',
 		'getExcluir' => '.produtos.excluir',
 	]);	
+
+	Route::controller('clientes', 'ClientesController',[
+		'getIndex' => '.clientes',
+		'getCriar' => '.clientes.criar',
+		'postSalvar' => '.clientes.salvar',
+		'getEditar' => '.clientes.editar',
+		'postEditar' => '.clientes.atualizar',
+	]);
+
+	Route::controller('pedidos', 'PedidosController',[
+		'getIndex' => '.pedidos',
+		'getEditar' => '.pedidos.editar',
+		'postEditar' => '.pedidos.atualizar',
+	]);
 });
 

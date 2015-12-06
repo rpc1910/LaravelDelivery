@@ -36,6 +36,8 @@
 					<li><a href="{{ url('/') }}">Home</a></li>
 					<li><a href="{{ route('admin.categorias') }}">Categorias</a></li>
 					<li><a href="{{ route('admin.produtos') }}">Produtos</a></li>
+					<li><a href="{{ route('admin.clientes') }}">Clientes</a></li>
+					<li><a href="{{ route('admin.pedidos') }}">Pedidos</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

@@ -11,7 +11,7 @@ class Cliente extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable = [
-        'usuario_id',
+        'user_id',
         'telefone',
         'endereco',
         'cidade',
@@ -20,7 +20,7 @@ class Cliente extends Model implements Transformable
     ];
 
     public function usuario() {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
 }

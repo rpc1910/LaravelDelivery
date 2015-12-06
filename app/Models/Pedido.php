@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
+
+
 class Pedido extends Model implements Transformable
 {
     use TransformableTrait;
@@ -19,6 +21,10 @@ class Pedido extends Model implements Transformable
 
     public function items() {
         return $this->hasMany(PedidoProduto::class);
+    }
+
+    public function comprador() {
+        return $this->hasOne(Cliente::class, 'id', 'cliente_id');
     }
 
     public function entregador() {

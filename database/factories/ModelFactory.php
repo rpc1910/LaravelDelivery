@@ -43,3 +43,18 @@ $factory->define(LaravelDelivery\Models\Cliente::class, function(Faker\Generator
 		'cep' => $faker->postcode,
 	];
 });
+
+$factory->define(LaravelDelivery\Models\Pedido::class, function(Faker\Generator $faker) {
+	return [
+		'cliente_id' => rand(1,10),
+		// 'entregador_id' => 0,
+		'total' => rand(50,100),
+		'status' => 0
+	];
+});
+
+$factory->define(LaravelDelivery\Models\PedidoProduto::class, function(Faker\Generator $faker) {
+	return [
+		
+	];
+});
