@@ -58,3 +58,10 @@ $factory->define(LaravelDelivery\Models\PedidoProduto::class, function(Faker\Gen
 		
 	];
 });
+
+$factory->define(LaravelDelivery\Models\Cupom::class, function(Faker\Generator $faker) {
+	return [
+		'codigo' => rand(100,1000),
+		'valor' => rand(50,100)
+	];
+});
