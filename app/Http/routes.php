@@ -18,7 +18,7 @@ Route::get('/', function () {
 // Cria todas as urls da API de forma automática
 // Route::resource('admin/categorias', 'CategoriasController');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin', 'middleware'=>'auth.checkrole'], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin', 'middleware'=>'auth.checkrole:admin'], function(){
 	Route::controller('categorias', 'CategoriasController',[
 		'getIndex' => '.categorias',
 		'getCriar' => '.categorias.criar',
@@ -49,5 +49,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin', 'middleware'=>'auth.checkrol
 		'getEditar' => '.pedidos.editar',
 		'postEditar' => '.pedidos.atualizar',
 	]);
+
+	Route::controller('cupoms', 'CupomsController',[
+		'getIndex' => '.cupoms',
+		'getCriar' => '.cupoms.criar',
+		'postSalvar' => '.cupoms.salvar',
+		'getEditar' => '.cupoms.editar',
+		'postEditar' => '.cupoms.atualizar',
+	]);
 });
 
+Route::group(['prefix' => 'consumidor', 'as' => 'consumidor', 'middleware'=>'auth.checkrole:cliente'], function(){
+	Route::controller('carrinho', 'CarrinhoController',[
+		'getIndex' => '.carrinho',
+		'getNovo' => '.carrinho.novo',
+		'postSalvar' => '.carrinho.salvar',
+	]);
+});
