@@ -31,4 +31,8 @@ class Pedido extends Model implements Transformable
         return $this->belongsTo(User::class);
     }
 
+    public function cupoms() {
+        return $this->belongsTo(Cupom::class);
+    }
+
 }

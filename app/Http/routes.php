@@ -71,8 +71,24 @@ Route::post('oauth/access_token', function() {
 	return Response::json(Authorizer::issueAccessToken());
 });
 
-Route::group(['prefix' => 'api', 'as' => 'api', 'middleware'=>'oauth'], function(){
-	Route::get('pedidos', function(){
-		return "Rodrigo";
-	});	
+Route::group(['prefix' => 'api', 'as' => 'api.', 'middleware'=>'oauth'], function(){
+	
+	// Cliente
+	Route::group(['prefix' => 'client', 'middleware' => 'oauth.checkrole:cliente', 'as' => 'client.'], function(){
+		
+		Route::resource('order', 'Api\Client\ClientCarrinhoController', ['except' => ['create', 'edit', 'destroy']]);
+
+		
+	});
+
+	// Entregador
+	Route::group(['prefix' => 'deliveryman', 'middleware' => 'oauth.checkrole:entregador', 'as' => 'deliveryman.'], function(){
+		Route::get('teste', function(){
+			return [
+				'conteudo' => 'Entregador'
+			];
+		});
+	});
+
+	
 });

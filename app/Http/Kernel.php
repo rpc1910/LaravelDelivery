@@ -32,6 +32,8 @@ class Kernel extends HttpKernel
         'guest' => \LaravelDelivery\Http\Middleware\RedirectIfAuthenticated::class,
         'auth.checkrole' => \LaravelDelivery\Http\Middleware\CheckRole::class,
 
+        'oauth.checkrole' => \LaravelDelivery\Http\Middleware\OAuthCheckRole::class,
+
         'oauth' => \LucaDegasperi\OAuth2Server\Middleware\OAuthMiddleware::class,
         'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
         'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
