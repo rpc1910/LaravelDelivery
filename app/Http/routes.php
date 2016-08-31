@@ -66,3 +66,13 @@ Route::group(['prefix' => 'consumidor', 'as' => 'consumidor', 'middleware'=>'aut
 		'postSalvar' => '.carrinho.salvar',
 	]);
 });
+
+Route::post('oauth/access_token', function() {
+	return Response::json(Authorizer::issueAccessToken());
+});
+
+Route::group(['prefix' => 'api', 'as' => 'api', 'middleware'=>'oauth'], function(){
+	Route::get('pedidos', function(){
+		return "Rodrigo";
+	});	
+});
